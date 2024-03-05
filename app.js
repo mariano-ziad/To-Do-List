@@ -12,7 +12,7 @@ app.set("view engine", "ejs");
 // ------------------------------------------------------
 app.get("/", (req, res) => {
     const day = date.getDate();
-    res.render("list", { listTitle: day, newTask: tasks});
+    res.render("list", { listTitle: day, newTask: tasks });
 });
 
 app.post("/", (req, res) => {
@@ -26,8 +26,8 @@ app.post("/", (req, res) => {
     }
 });
 // ---------------------------------------------------------
-app.get("/work",(req, res)=>{
-    res.render("list",{listTitle: "Work List", newTask: workTasks});
+app.get("/work", (req, res) => {
+    res.render("list", { listTitle: "Work List", newTask: workTasks });
 });
 // --------------------------------------------------------------
 app.listen(port, (req, res) => {
