@@ -46,6 +46,6 @@ app.get("/:topicList", (req, res) => {
     });
 });
 
-app.listen(port, (req, res) => {
+app.listen(process.env.PORT, (req, res) => {
     console.log("server started on port " + port);
 });
