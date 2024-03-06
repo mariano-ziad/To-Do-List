@@ -1,22 +1,22 @@
-<%- include("header") -%>
-<div class="box" id="heading">
-    <h1>
-        <%= listTitle %>
-    </h1>
-</div>
-<div class="box">
-    <% for(var i=0; i<newTask.length; i++){ %>
-        <div class="item">
-            <input type="checkbox">
-            <p>
-                <%= newTask[i] %>
-            </p>
-        </div>
-        <% } %>
-            <form class="item" action="/" method="post">
-                <input type="text" name="newItem" placeholder="New Item" autocomplete="off" required autofocus>
-                <button type="submit" name="list" value="<%= listTitle %>">+</button>
-            </form>
-
-</div>
-<%- include("footer") -%>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1><%= listTitle %></h1>
+    <ul>
+      <% newTask.forEach(task => { %>
+        <li>
+          <input type="checkbox" name="checkbox" value="<%= task._id %>" <%= task.done ? 'checked' : '' %> >
+          <%= task.name %>
+        </li>
+      <% }); %>
+    </ul>
+    <form action="/" method="post">
+      <input type="text" name="newItem" placeholder="Add a new item" autocomplete="off" autofocus>
+      <button type="submit" name="button">Add Item</button>
+    </form>
+  </body>
+</html>
