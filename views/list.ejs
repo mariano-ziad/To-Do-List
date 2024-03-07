@@ -9,9 +9,7 @@
             <form action="/delete" method="post">
                 <div class="item">
                     <input name="checkbox" value="<%=task._id%>" type="checkbox" onchange="submit()">
-                    <p>
-                        <%= task.name %>
-                    </p>
+                    <p><%= task.name %></p>
                 </div>
             </form>
             <% }) %>
@@ -19,6 +17,5 @@
                     <input type="text" name="newItem" placeholder="New Item" autocomplete="off" required autofocus>
                     <button type="submit" name="list" value="<%= listTitle %>">+</button>
                 </form>
-
     </div>
     <%- include("footer") -%>
