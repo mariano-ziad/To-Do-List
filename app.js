@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const port = 3000 || process.env.PORT;
 const mongoose = require("mongoose");
+const _ = require("lodash");
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,7 +14,7 @@ const TaskSchema = mongoose.Schema({
     name: { type: String, required: true }
 });
 const listSchema = {
-    name: String,
+    name: {type: String, required: true, unique: true},
     items: [TaskSchema]
 };
 const Task = mongoose.model("Task", TaskSchema);
@@ -28,8 +29,9 @@ app.get("/", (req, res) => {
             console.log(err);
         });
 });
+
 app.get("/:newListName", (req, res)=>{
-    const newListName = req.params.newListName;
+    const newListName = _.capitalize(req.params.newListName);
     List.findOne({name : newListName})
     .then((foundList) => {
         if (!foundList) {
