@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
 
-mongoose.connect("mongodb+srv://Ziad:ytyyyuyi@my-first-cluster.hifjeup.mongodb.net/?retryWrites=true&w=majority&appName=my-first-cluster");
+mongoose.connect("mongodb+srv://Ziad:ytyyyuyi@my-first-cluster.hifjeup.mongodb.net/todolistDB");
 const TaskSchema = mongoose.Schema({
     name: { type: String, required: true }
 });
